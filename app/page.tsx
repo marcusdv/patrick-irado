@@ -28,7 +28,7 @@ export default function Home() {
     return (
         <div className="container ">
             {/* // fundo vermelho */}
-            <div className="bg-red-900 absolute w-full h-full ">
+            <div className="bg-red-900 absolute w-full h-full  ">
                 <ul
                     className={`flex flex-col gap-4 relative top-[80%] text-white text-xl transition-transform duration-700 ease-in-out 
                     ${
@@ -48,9 +48,9 @@ export default function Home() {
                 }`}
             >
                 <div className="w-3/6 mx-auto mt-32">
-                    <h1 className='text-5xl'>Patrick Irado</h1>
-                    <small className='italic'>Uma galinha irada</small>
-                    <p className='mt-4'>
+                    <h1 className="text-5xl">Patrick Irado</h1>
+                    <small className="italic">Uma galinha irada</small>
+                    <p className="mt-4">
                         Patrick Irado não é uma galinha comum. Ele é a galinha.
                         Com sua crista perfeitamente estilizada e penas
                         brilhantes que refletem o sol como uma verdadeira
@@ -88,14 +88,14 @@ export default function Home() {
                         &quot;cocoricó&quot; atrasado, todo mundo sabe: Patrick
                         é iradíssimo.
                     </p>
-                    <h2 className='text-xl mt-8 mb-4'>Galinha Irada</h2>
+                    <h2 className="text-xl mt-8 mb-4">Galinha Irada</h2>
                     <Image
                         src="/images/stephen-mierendorf-rR5WwO06VIM-unsplash.jpg"
                         alt="Patrick Irado"
                         width={1000}
                         height={600}
                     />
-                    <p className='mt-4'>
+                    <p className="mt-4">
                         Patrick é demais! Ele não é apenas uma galinha comum,
                         ele é um verdadeiro ícone. Com seu jeito irreverente e
                         habilidades únicas, ele redefine o que significa ser
