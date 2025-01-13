@@ -26,7 +26,7 @@ export default function Home() {
     );
 
     return (
-        <div className="container">
+        <div className="container ">
             {/* // fundo vermelho */}
             <div className="bg-red-900 absolute w-full h-full ">
                 <ul
@@ -43,7 +43,7 @@ export default function Home() {
 
             {/* frente verde */}
             <div
-                className={`bg-white w-full pb-8 absolute transition-transform duration-500 origin-top-left  ${
+                className={`bg-white w-full pb-8cd absolute transition-transform duration-500 origin-top-left  ${
                     isTilted ? '-rotate-[18deg] ' : 'rotate-0'
                 }`}
             >
