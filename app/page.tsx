@@ -1,101 +1,116 @@
-import Image from "next/image";
+'use client';
+import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    const [isTilted, setIsTilted] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    const rodaVermelha = (
+        <div
+            onClick={() => setIsTilted(!isTilted)}
+            className={`relative cursor-pointer rounded-full text-white bg-red-500 w-[300px] h-[300px] inline-block -top-40 -left-40 transition-transform duration-500 origin-center ${
+                isTilted ? '-rotate-90' : 'rotate-0'
+            }`}
+        >
+            {/* hamburger */}
+            <div className="flex flex-col justify-between w-12 h-9 cursor-pointer relative -bottom-[210px] left-[192px]">
+                <div className="h-2 w-full bg-gray-800 rounded"></div>
+                <div className="h-2 w-full bg-gray-800 rounded"></div>
+                <div className="h-2 w-full bg-gray-800 rounded"></div>
+            </div>
+            {/* X */}
+            <div className="text-6xl text-gray-800 relative -bottom-[280px] -left-[80px] rotate-90">
+                X
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
+
+    return (
+        <div className="container">
+            {/* // fundo vermelho */}
+            <div className="bg-red-900 absolute w-full h-full ">
+                <ul
+                    className={`flex flex-col gap-4 relative top-[80%] text-white text-xl transition-transform duration-700 ease-in-out 
+                    ${
+                        isTilted ? 'translate-x-[20px]' : '-translate-x-[140px]'
+                    }`}
+                >
+                    <li className="ml-0">Início</li>
+                    <li className="ml-5">Sobre</li>
+                    <li className="ml-10">Contato</li>
+                </ul>
+            </div>
+
+            {/* frente verde */}
+            <div
+                className={`bg-white w-full pb-8 absolute transition-transform duration-500 origin-top-left  ${
+                    isTilted ? '-rotate-[18deg] ' : 'rotate-0'
+                }`}
+            >
+                <div className="w-3/6 mx-auto mt-32">
+                    <h1 className='text-5xl'>Patrick Irado</h1>
+                    <small className='italic'>Uma galinha irada</small>
+                    <p className='mt-4'>
+                        Patrick Irado não é uma galinha comum. Ele é a galinha.
+                        Com sua crista perfeitamente estilizada e penas
+                        brilhantes que refletem o sol como uma verdadeira
+                        armadura de guerreiro, Patrick é simplesmente o rei do
+                        galinheiro – e possivelmente de todo o universo das
+                        aves. O que o torna tão incrível? Bem, prepare-se,
+                        porque a lista é longa. Primeiro, Patrick anda de skate.
+                        E não é aquele rolê básico de iniciante, não. Ele faz
+                        kickflips, desce corrimãos e manda manobras que deixam
+                        até os humanos mais experientes de boca aberta. O
+                        barulho das rodinhas deslizando na madeira virou o som
+                        icônico da fazenda. Quando Patrick está no auge, os
+                        outros animais se reúnem para assistir, enquanto ele
+                        desliza pelo galinheiro com a maior calma, como se fosse
+                        uma estrela de cinema – e, de certa forma, ele é. Ah, e
+                        sobre cantar? Esqueça o &quot;cocoricó&quot; na hora
+                        certa. Patrick só canta quando quer, geralmente
+                        atrasado, mas com estilo. Quando finalmente solta sua
+                        voz, o mundo para para ouvir. É como se ele dissesse:
+                        &quot;Eu não sigo as regras, as regras me seguem.&quot;
+                        Patrick também domina a arte de comer minhocas deitado.
+                        Sim, deitado. Enquanto as outras galinhas correm atrás
+                        de insetos ou ciscam freneticamente, ele simplesmente se
+                        recosta, cruza as asas e saboreia suas minhocas com a
+                        tranquilidade de quem sabe que é lendário. E se você
+                        acha que galinhas não sobem em árvores, Patrick vai te
+                        provar errado. Ele escala os galhos como se fosse um
+                        gato, muitas vezes para alcançar lugares impossíveis. Lá
+                        do alto, ele observa tudo como um verdadeiro
+                        estrategista, decidindo seu próximo movimento – ou
+                        apenas aproveitando a vista. Patrick Irado não é apenas
+                        uma galinha, ele é um fenômeno. Um exemplo de que ser
+                        diferente é ser incrível. E no final do dia, quando ele
+                        pousa do skate, sobe na árvore mais alta e solta um
+                        &quot;cocoricó&quot; atrasado, todo mundo sabe: Patrick
+                        é iradíssimo.
+                    </p>
+                    <h2 className='text-xl mt-8 mb-4'>Galinha Irada</h2>
+                    <Image
+                        src="/images/stephen-mierendorf-rR5WwO06VIM-unsplash.jpg"
+                        alt="Patrick Irado"
+                        width={1000}
+                        height={600}
+                    />
+                    <p className='mt-4'>
+                        Patrick é demais! Ele não é apenas uma galinha comum,
+                        ele é um verdadeiro ícone. Com seu jeito irreverente e
+                        habilidades únicas, ele redefine o que significa ser
+                        incrível. Seja andando de skate com a maior destreza,
+                        cantando de forma única e sem pressa, ou até comendo
+                        minhocas deitado, Patrick sempre se destaca. Sua
+                        habilidade de subir em árvores e desafiar os limites da
+                        normalidade o coloca em um patamar acima das outras
+                        galinhas. Ele não segue regras, ele cria as próprias – e
+                        é isso que o torna iradíssimo. Patrick é, sem dúvida,
+                        uma lenda viva!
+                    </p>
+                </div>
+            </div>
+            {rodaVermelha}
+        </div>
+    );
 }
